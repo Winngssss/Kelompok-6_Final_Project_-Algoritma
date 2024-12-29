@@ -46,5 +46,5 @@ def main():
         print(f"\nError: {e}\n")
         display_help()
 
-if __name__ == "__main__":
+if __name__== "__main__":
     main()

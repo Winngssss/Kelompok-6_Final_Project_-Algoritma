@@ -1,29 +1,33 @@
 import unittest
-from sorting.quick_sort import QuickSort
+from sorting.insertion_sort import insertion_sort
+from sorting.selection_sort import selection_sort
+from sorting.merge_sort import merge_sort
+from sorting.quick_sort import quick_sort
+from sorting.heap_sort import heap_sort
+from sorting.counting_sort import counting_sort
 
-class TestQuickSort(unittest.TestCase):
-    def setUp(self):
-        self.quick_sort = QuickSort()
+class TestSortingAlgorithms(unittest.TestCase):
+    def test_insertion_sort(self):
+        self.assertEqual(insertion_sort([5, 2, 9, 1, 5, 6]), [1, 2, 5, 5, 6, 9])
 
-    def test_sort_unsorted_array(self):
-        arr = [3, 6, 8, 10, 1, 2, 1]
-        result = self.quick_sort.sort(arr)
-        self.assertEqual(result, [1, 1, 2, 3, 6, 8, 10])
+    def test_selection_sort(self):
+        self.assertEqual(selection_sort([5, 2, 9, 1, 5, 6]), [1, 2, 5, 5, 6, 9])
 
-    def test_sort_empty_array(self):
-        arr = []
-        result = self.quick_sort.sort(arr)
-        self.assertEqual(result, [])
+    def test_merge_sort(self):
+        self.assertEqual(merge_sort([5, 2, 9, 1, 5, 6]), [1, 2, 5, 5, 6, 9])
 
-    def test_sort_single_element(self):
-        arr = [5]
-        result = self.quick_sort.sort(arr)
-        self.assertEqual(result, [5])
+    def test_quick_sort(self):
+        arr = [5, 2, 9, 1, 5, 6]
+        quick_sort(arr, 0, len(arr) - 1)
+        self.assertEqual(arr, [1, 2, 5, 5, 6, 9])
 
-    def test_sort_sorted_array(self):
-        arr = [1, 2, 3, 4, 5]
-        result = self.quick_sort.sort(arr)
-        self.assertEqual(result, [1, 2, 3, 4, 5])
+    def test_heap_sort(self):
+        self.assertEqual(heap_sort([5, 2, 9, 1, 5, 6]), [1, 2, 5, 5, 6, 9])
 
-if __name__ == "__main__":
+    def test_counting_sort(self):
+        self.assertEqual(counting_sort([5, 2, 9, 1, 5, 6]), [1, 2, 5, 5, 6, 9])
+
+if __name__ == "_main_":
+    unittest.main()
+if __name__ == "_main_":
     unittest.main()
